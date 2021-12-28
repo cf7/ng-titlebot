@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { environment } from '../environments/environment';
+import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 
 @Component({
@@ -8,12 +10,13 @@ import axios from 'axios';
   styleUrls: ['./app.component.scss']
 })
 
-// if (env && env == 'development') {
-//   const mock = new MockAdapter(axios);
-//   mock.onPost("/lookup").reply(200, {
-//     title: "<title>Mock Title</title>",
-//   });
-// }
+let mock: object = {};
+if (!environment.production) {
+  mock = new MockAdapter(axios);
+  mock.onPost("/lookup").reply(200, {
+    title: "<title>Mock Title</title>",
+  });
+}
 
 export class AppComponent {
   title = 'Website Title Appears Here';
