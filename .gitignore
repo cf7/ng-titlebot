@@ -16,6 +16,7 @@ development.json
 
 # framework
 .angular
+dist/
 
 # testing
 /coverage
