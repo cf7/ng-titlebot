@@ -12,28 +12,38 @@
 
 
 <div class="content" role="main">
-  <h5>Welcome to Titlebot!</h5>
-  <p>To get started, try inputting a url in the text field below and click [Lookup]. This app only works for homepage urls. If given jumbled input, it will search for the first occurence of a valid url if one exists.</p>
-  <figure>
-    <h6>The following are examples of valid urls:</h6>
-    <ul class="valid-inputs">
-      <li>https://example.com (ideal)</li>
-      <li>http://example.com</li>
-      <li>example.com</li>
-    </ul>
-  </figure>
 
-  <h5>Valid url suffixes: .com | .org | .edu | .net | .ai</h5>
-  <p>When given multiple urls, the app will search using the first occurrence of a "basic url," a url substring that is "valid" and ends with a valid suffix (e.g. ".com").</p>
-  <figure>
-    <h6>The following are examples of invalid urls:</h6>
-      <ul class="invalid-inputs">
-        <li>https://example.asdfasdf</li>
-        <li>asdfasdf.example</li>
-        <li>.asdfasdfexample.com</li>
-      </ul>
-  </figure>
+  <div class="description-view">
+    <div class="col-1">
+      <h5>Welcome to Titlebot!</h5>
+      <p>
+      To get started, try inputting a url in the text field below and click [Lookup]. This app only works for homepage urls. If given jumbled input, it will search for the first occurence of a valid url if one exists.
+      </p>
+      <figure>
+        <h6>The following are examples of valid urls:</h6>
+        <ul class="valid-inputs">
+          <li>https://example.com (ideal)</li>
+          <li>http://example.com</li>
+          <li>example.com</li>
+        </ul>
+      </figure>
+    </div>
 
+    <div class="col-2">
+      <h5>Valid url suffixes: .com | .org | .edu | .net | .ai | .io</h5>
+      <p>
+      When given multiple urls, the app will search using the first occurrence of a "basic url," a url substring that is "valid" and ends with a valid suffix (e.g. ".com").
+      </p>
+      <figure>
+        <h6>The following are examples of invalid urls:</h6>
+          <ul class="invalid-inputs">
+            <li>https://example.asdfasdf</li>
+            <li>asdfasdf.example</li>
+            <li>.asdfasdfexample.com</li>
+          </ul>
+      </figure>
+    </div>
+  </div>
 
   <div class="form-view">
 
@@ -47,12 +57,10 @@
       Lookup
     </button>
 
-
-    
   </div>
 
   <div class="output-view">
-    <h4 className="output-display"> {{ title }} </h4>
+    <h4 class="output-display"> {{ title }} </h4>
   </div>
 
   

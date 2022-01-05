@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { URLService } from './url.service';
@@ -11,77 +11,55 @@ import axios from 'axios';
   styleUrls: ['./app.component.scss'],
 })
 
-// let mock: object = {};
-// if (!environment.production) {
-//   mock = new MockAdapter(axios);
-//   mock.onPost("/lookup").reply(200, {
-//     title: "<title>Mock Title</title>",
-//   });
-// }
 
-export class AppComponent {
 
-  constructor(private urlService: URLService) {
+export class AppComponent implements OnInit {
 
-      console.log(urlService);
+  constructor(private urlService: URLService) {}
 
+  ngOnInit() {
+    let mock: any = {};
+    if (!environment.production) {
+      mock = new MockAdapter(axios);
+      mock.onPost("/lookup").reply(200, {
+        title: "Mock Title",
+      });
+    }
   }
+
+  alertMessages = [ 
+      "Please provide a url to a website's homepage",
+      "url must have suffix (e.g. '.com')",
+      "Website valid but no title found",
+      "An issue occurred with the server"
+    ];
 
   title = 'Website Title Appears Here';
 
   suffixes = ['.com','.org','.edu','.net','.ai', '.io'];
   urlInput = new FormControl('');
 
-  // service
-  // processURL(inputURL: string, suffixes: string[]): string {
-  //   let indices: { [index: number]: string } = {};
-  //   suffixes.forEach((s) => {
-  //     if (inputURL.includes(s)) {
-  //       indices[inputURL.indexOf(s)] = s;
-  //     }
-  //   });
-  //   let keys: number[] = Object.keys(indices).map(e => parseInt(e));
-  //   if (keys.length > 0) {
-  //     let min: number = Math.min(...keys);
-  //     let closest = indices[min];
-  //     inputURL = inputURL.split(closest)[0] + closest;
-  //     if (inputURL.includes('https://') || inputURL.includes('http://')) {
-  //       inputURL = inputURL.split('://')[1];
-  //     }
-  //     return 'https://' + inputURL;
-  //   } else {
-  //     return '';
-  //   }
-  // }
-
   handleSubmit() {
-    alert("Clicked!");
     if (this.urlInput.value) {
       let url = this.urlService.processURL(this.urlInput.value, this.suffixes);
       if (url) {
         axios.post('/lookup', { data: url }, { timeout: 10000 })
           .then((response) => {
             if (response.data && response.data.title) {
-              console.log("Success!");
-
-              // this.setState({ 
-              //   title: response.data.title,
-              //   alert: false,
-              //   loading: false
-              // });
+              this.title = response.data.title;
             } else {
-              // this.setState({
-              //   alert: true,
-              //   alertVariant: 'warning',
-              //   alertIndex: 2,
-              //   loading: false
-              // });
+              alert(this.alertMessages[2]);
             }
           })
           .catch(err => {
             console.error(err);
+            alert(this.alertMessages[3]);
           })
+      } else {
+        alert(this.alertMessages[1]);
       }
+    } else {
+      alert(this.alertMessages[0]);
     }
   }
 }
