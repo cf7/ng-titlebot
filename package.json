@@ -2,6 +2,7 @@
   "name": "app",
   "version": "0.0.0",
   "scripts": {
+    "start:eb": "npm install; npm run build; node server.js;",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
