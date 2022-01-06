@@ -1,1 +1,0 @@
-make: node_modules/@angular/cli/bin/ng.js build
