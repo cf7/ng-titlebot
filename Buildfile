@@ -1,2 +1,1 @@
-set: chmod +x .platform/hooks/postdeploy/test.sh
-make: npx -p @angular/cli ng build
+make: node_modules/@angular/cli/bin/ng.js build

@@ -1,5 +1,3 @@
-'use strict';
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, '/dist/titlebot'))); // serve these files
+app.use('/', express.static(path.join(__dirname, '/dist/titlebot'))); // serve these files
 
 
 app.post('/lookup', (req, res) => {
