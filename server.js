@@ -41,7 +41,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  console.log(app._router.stack);
   res.status(404);
 });
 
