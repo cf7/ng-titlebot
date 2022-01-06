@@ -2,14 +2,7 @@
   "name": "app",
   "version": "0.0.0",
   "scripts": {
-    "build:eb": "npm install; npm run build;",
-    "start:eb": "node server.js",
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "nodemon": "nodemon server.js --delay 2"
+    "start": "node server.js"
   },
   "private": true,
   "dependencies": {
