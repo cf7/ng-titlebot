@@ -35,7 +35,7 @@ app.post('/lookup', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).sendFile("index.html");
+  res.status(200).sendFile("/index.html");
 });
 
 app.get('*', (req, res) => {
