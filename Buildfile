@@ -1,0 +1,1 @@
+make: npx -p @angular/cli ng build
