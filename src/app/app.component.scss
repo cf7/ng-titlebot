@@ -15,7 +15,6 @@
   width:  100%;
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
-
 }
 
 h1 {
@@ -125,7 +124,7 @@ h4.output-display {
     border-radius: 0.25rem;
     &:hover {
       color: white;
-      background-color: 
+      background-color: #0d6efd;
       transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       transition-property: color, background-color, border-color, box-shadow;
       transition-duration: 0.15s, 0.15s, 0.15s, 0.15s;
